@@ -14,12 +14,15 @@ class MainActionButtonTheme {
   /// icon that displayed when the
   /// [BottomBarWithSheet] field [_isOpened] == false
   final Widget? icon;
+  final Widget? disabledIcon;
 
   /// splash color of widget circle
   final Color? splash;
+  final Color? disabledSplash;
 
   /// background color of widget circle
   final Color? color;
+  final Color? disabledColor;
 
   /// side paddings of [MainActionButton]
   final EdgeInsets margin;
@@ -31,9 +34,12 @@ class MainActionButtonTheme {
 
   const MainActionButtonTheme({
     this.icon = const Icon(Icons.add, size: 40, color: Colors.white),
+    this.disabledIcon = const Icon(Icons.add, size: 40, color: Colors.white),
     this.size = 50,
     this.splash,
+    this.disabledSplash,
     this.color,
+    this.disabledColor,
     this.margin = defaultMargin,
     this.transform,
   });
