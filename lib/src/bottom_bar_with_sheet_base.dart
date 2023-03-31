@@ -158,6 +158,7 @@ class _BottomBarWithSheetState extends State<BottomBarWithSheet>
                 model: e,
                 controller: widget._controller,
                 theme: widget.bottomBarTheme,
+                disabled: _isOpened,
               ),
             ),
           )
