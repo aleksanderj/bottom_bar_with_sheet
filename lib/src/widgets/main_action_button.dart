@@ -7,6 +7,7 @@ class MainActionButton extends StatelessWidget {
     Key? key,
     required this.onTap,
     required this.mainActionButtonTheme,
+    required this.disabledMainActionButtonTheme,
     required this.arrowAnimation,
     required this.arrowAnimationController,
     required this.enable,
@@ -15,6 +16,7 @@ class MainActionButton extends StatelessWidget {
 
   final Function() onTap;
   final MainActionButtonTheme mainActionButtonTheme;
+  final MainActionButtonTheme disabledMainActionButtonTheme;
   final Widget? button;
   final AnimationController arrowAnimationController;
   final Animation arrowAnimation;
@@ -37,7 +39,7 @@ class MainActionButton extends StatelessWidget {
                 color: _getIconBGColor(context),
                 child: InkWell(
                   onTap: enable ? onTap : () {},
-                  splashColor: mainActionButtonTheme.splash,
+                  splashColor: enable ? mainActionButtonTheme.splash : disabledMainActionButtonTheme.splash,
                   child: AnimatedBuilder(
                     animation: arrowAnimationController,
                     builder: (BuildContext context, Widget? child) {
@@ -52,7 +54,7 @@ class MainActionButton extends StatelessWidget {
                       child: Opacity(
                         opacity: 1.0,
                         child: Center(
-                          child: mainActionButtonTheme.icon,
+                          child: enable ? mainActionButtonTheme.icon : disabledMainActionButtonTheme.icon,
                         ),
                       ),
                     ),
@@ -64,6 +66,6 @@ class MainActionButton extends StatelessWidget {
   }
 
   Color? _getIconBGColor(BuildContext context) {
-    return mainActionButtonTheme.color ?? Theme.of(context).iconTheme.color;
+    return enable ? mainActionButtonTheme.color ?? Theme.of(context).iconTheme.color : disabledMainActionButtonTheme.color ?? Theme.of(context).iconTheme.color;
   }
 }
