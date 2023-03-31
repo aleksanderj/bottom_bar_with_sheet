@@ -12,8 +12,9 @@ class BottomBarWithSheetItem {
     Key? key,
     required this.icon,
     this.label,
-    this.noSelectionState = false,
-  });
+    this.noSelection = false,
+    this.disabled = false,
+  }) : noSelectionState = noSelection || disabled;
 
   /// [IconData] icon of
   /// your [BottomBarWithSheetItem] navigation item
@@ -22,6 +23,9 @@ class BottomBarWithSheetItem {
   /// Text [String] label of
   /// your [BottomBarWithSheetItem] navigation item
   final String? label;
+
+  final bool noSelection;
+  final bool disabled;
 
   /// If [noSelectionState] is true then no styling/state change happens when this item is pressed/selected
   final bool noSelectionState;

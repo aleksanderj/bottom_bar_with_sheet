@@ -66,7 +66,10 @@ class BottomBarWithSheetItemWidget extends StatelessWidget {
     final bottomNavigationTheme = Theme.of(context).bottomNavigationBarTheme;
     return isSelected
         ? theme.selectedItemIconColor ?? bottomNavigationTheme.selectedItemColor
-        : theme.itemIconColor ?? bottomNavigationTheme.unselectedItemColor;
+        : (model.disabled
+                ? theme.disabledItemIconColor
+                : theme.itemIconColor) ??
+            bottomNavigationTheme.unselectedItemColor;
   }
 
   TextStyle? _getLabelStyle(BuildContext context) {
@@ -74,6 +77,9 @@ class BottomBarWithSheetItemWidget extends StatelessWidget {
     return isSelected
         ? theme.selectedItemTextStyle ??
             bottomNavigationTheme.selectedLabelStyle
-        : theme.itemTextStyle ?? bottomNavigationTheme.selectedLabelStyle;
+        : (model.disabled
+                ? theme.disabledItemTextStyle
+                : theme.itemTextStyle) ??
+            bottomNavigationTheme.selectedLabelStyle;
   }
 }

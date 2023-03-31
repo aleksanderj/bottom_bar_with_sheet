@@ -23,6 +23,9 @@ class BottomBarTheme {
   /// UNselected [BottomBarWithSheetItem] text style
   final TextStyle? itemTextStyle;
 
+  final Color? disabledItemIconColor;
+  final TextStyle? disabledItemTextStyle;
+
   /// enum filed that response for the position of MainActionButton position
   /// this field have 3 possible values:
   ///
@@ -64,6 +67,8 @@ class BottomBarTheme {
     this.itemIconColor,
     this.selectedItemTextStyle,
     this.itemTextStyle,
+    this.disabledItemIconColor,
+    this.disabledItemTextStyle,
     this.mainButtonPosition = MainButtonPosition.middle,
     this.decoration,
     this.itemIconSize = 22,
