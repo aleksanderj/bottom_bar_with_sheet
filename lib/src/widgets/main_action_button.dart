@@ -22,9 +22,6 @@ class MainActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!enable) {
-      return SizedBox();
-    }
     return Container(
       color: Colors.transparent,
       transform: mainActionButtonTheme.transform ??
@@ -33,13 +30,13 @@ class MainActionButton extends StatelessWidget {
       child: button != null
           ? InkWell(
               child: button,
-              onTap: onTap,
+              onTap: enable ? onTap : () {},
             )
           : ClipOval(
               child: Material(
                 color: _getIconBGColor(context),
                 child: InkWell(
-                  onTap: onTap,
+                  onTap: enable ? onTap : () {},
                   splashColor: mainActionButtonTheme.splash,
                   child: AnimatedBuilder(
                     animation: arrowAnimationController,
